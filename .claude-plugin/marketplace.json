@@ -1,0 +1,46 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "DiamondhunterSA-skills",
+  "description": "Academic application writing collection and individual skill plugins.",
+  "owner": {
+    "name": "DiamondhunterSA",
+    "url": "https://github.com/DiamondhunterSA"
+  },
+  "plugins": [
+    {
+      "name": "academic-application-writing",
+      "source": "./",
+      "description": "Academic application writing skills for personal statements, inquiry emails, recommendation letters, and application package reviews. Install the collection to use every skill, or install individual skills separately.",
+      "version": "0.2.0+9312aef89163",
+      "category": "productivity"
+    },
+    {
+      "name": "application-review",
+      "source": "./plugins/application-review",
+      "description": "Review an academic application package or a supplied subset of its materials against program requirements and across documents. Use for final submission checks, cross-document fact checks, prompt coverage, and consistency or complementarity reviews of CVs, statements, research proposals, supplementary essays, and related application materials. Return prioritized findings with evidence and concrete fixes; standalone drafting or sentence-level polishing belongs to the relevant writing skill.",
+      "version": "0.2.0+62824295d5e3",
+      "category": "productivity"
+    },
+    {
+      "name": "inquiry-email",
+      "source": "./plugins/inquiry-email",
+      "description": "Draft, revise, and personalize inquiry emails (including enquiry emails and academic outreach) to prospective supervisors, research groups, admissions or funding offices, and contacts for research or professional opportunities. Use for initial inquiries, follow-ups, or replies in an inquiry thread; full application essays, cover letters, and unrelated marketing or customer-support email are outside this skill's focus.",
+      "version": "0.2.0+7f05c372649b",
+      "category": "productivity"
+    },
+    {
+      "name": "personal-statement",
+      "source": "./plugins/personal-statement",
+      "description": "Assist in writing, structuring, and polishing personal statements and self-introductions. Use for drafting or revising a PS, personal statement, self-introduction, application essay, motivation letter, statement of purpose, cover letter, or personal bio for study abroad, graduate/PhD admissions, scholarships, jobs, or similar applications. Package-wide requirements and cross-document consistency reviews are outside this skill's focus.",
+      "version": "0.2.0+f42371a5fedf",
+      "category": "productivity"
+    },
+    {
+      "name": "recommendation-letter",
+      "source": "./plugins/recommendation-letter",
+      "description": "Draft, revise, and personalize academic recommendation letters, letters of reference, and LoRs in the first-person voice of a project supervisor, research supervisor, course instructor, or another academic mentor. Use for full letters, recommender questionnaire responses, translations, and distinct letters from several recommenders supporting graduate, PhD, scholarship, fellowship, or research applications. Ground each draft in the recommender's relationship, observations, and supplied evidence.",
+      "version": "0.2.0+d2e2c0a0e9a9",
+      "category": "productivity"
+    }
+  ]
+}

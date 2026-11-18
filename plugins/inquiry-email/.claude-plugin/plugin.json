@@ -1,0 +1,15 @@
+{
+  "name": "inquiry-email",
+  "description": "Draft, revise, and personalize inquiry emails (including enquiry emails and academic outreach) to prospective supervisors, research groups, admissions or funding offices, and contacts for research or professional opportunities. Use for initial inquiries, follow-ups, or replies in an inquiry thread; full application essays, cover letters, and unrelated marketing or customer-support email are outside this skill's focus.",
+  "author": {
+    "name": "DiamondhunterSA",
+    "url": "https://github.com/DiamondhunterSA/personal-statement-skill"
+  },
+  "repository": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "license": "MIT",
+  "homepage": "https://github.com/DiamondhunterSA/personal-statement-skill/tree/master/plugins/inquiry-email",
+  "skills": [
+    "./skills"
+  ],
+  "version": "0.2.0+7f05c372649b"
+}

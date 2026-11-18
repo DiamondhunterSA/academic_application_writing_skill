@@ -1,0 +1,15 @@
+{
+  "name": "application-review",
+  "description": "Review an academic application package or a supplied subset of its materials against program requirements and across documents. Use for final submission checks, cross-document fact checks, prompt coverage, and consistency or complementarity reviews of CVs, statements, research proposals, supplementary essays, and related application materials. Return prioritized findings with evidence and concrete fixes; standalone drafting or sentence-level polishing belongs to the relevant writing skill.",
+  "author": {
+    "name": "DiamondhunterSA",
+    "url": "https://github.com/DiamondhunterSA/personal-statement-skill"
+  },
+  "repository": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "license": "MIT",
+  "homepage": "https://github.com/DiamondhunterSA/personal-statement-skill/tree/master/plugins/application-review",
+  "skills": [
+    "./skills"
+  ],
+  "version": "0.2.0+62824295d5e3"
+}
