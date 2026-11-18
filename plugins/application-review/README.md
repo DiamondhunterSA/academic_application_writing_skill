@@ -11,20 +11,20 @@ Run from the project where you want to use this skill.
 Install this skill with one command:
 
 ```bash
-claude plugin install application-review --marketplace DiamondhunterSA/personal-statement-skill --scope project
+claude plugin install application-review --marketplace DiamondhunterSA/academic_application_writing_skill --scope project
 ```
 
 Alternatively, add the marketplace and install the skill in two steps:
 
 ```bash
-claude plugin marketplace add DiamondhunterSA/personal-statement-skill
+claude plugin marketplace add DiamondhunterSA/academic_application_writing_skill
 claude plugin install application-review@DiamondhunterSA-skills --scope project
 ```
 
 ### npx skills
 
 ```bash
-npx skills add DiamondhunterSA/personal-statement-skill --skill application-review -a claude-code -y
+npx skills add DiamondhunterSA/academic_application_writing_skill --skill application-review -a claude-code -y
 ```
 
 ## Usage and collection

@@ -98,17 +98,17 @@ Choose the collection or individual plugins for a project to avoid duplicate ski
 | Skill | Description |
 |-------|-------------|
 | [application-review](skills/application-review) | Review an academic application package or a supplied subset of its materials against program requirements and across documents. Use for final submission checks, cross-document fact checks, prompt coverage, and consistency or complementarity reviews of CVs, statements, research proposals, supplementary essays, and related application materials. Return prioritized findings with evidence and concrete fixes; standalone drafting or sentence-level polishing belongs to the relevant writing skill. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill application-review -a claude-code -y` |
-| | `claude plugin install application-review --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx skills add DiamondhunterSA/academic_application_writing_skill --skill application-review -a claude-code -y` |
+| | `claude plugin install application-review --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [inquiry-email](skills/inquiry-email) | Draft, revise, and personalize inquiry emails (including enquiry emails and academic outreach) to prospective supervisors, research groups, admissions or funding offices, and contacts for research or professional opportunities. Use for initial inquiries, follow-ups, or replies in an inquiry thread; full application essays, cover letters, and unrelated marketing or customer-support email are outside this skill's focus. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill inquiry-email -a claude-code -y` |
-| | `claude plugin install inquiry-email --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx skills add DiamondhunterSA/academic_application_writing_skill --skill inquiry-email -a claude-code -y` |
+| | `claude plugin install inquiry-email --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [personal-statement](skills/personal-statement) | Assist in writing, structuring, and polishing personal statements and self-introductions. Use for drafting or revising a PS, personal statement, self-introduction, application essay, motivation letter, statement of purpose, cover letter, or personal bio for study abroad, graduate/PhD admissions, scholarships, jobs, or similar applications. Package-wide requirements and cross-document consistency reviews are outside this skill's focus. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill personal-statement -a claude-code -y` |
-| | `claude plugin install personal-statement --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx skills add DiamondhunterSA/academic_application_writing_skill --skill personal-statement -a claude-code -y` |
+| | `claude plugin install personal-statement --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [recommendation-letter](skills/recommendation-letter) | Draft, revise, and personalize academic recommendation letters, letters of reference, and LoRs in the first-person voice of a project supervisor, research supervisor, course instructor, or another academic mentor. Use for full letters, recommender questionnaire responses, translations, and distinct letters from several recommenders supporting graduate, PhD, scholarship, fellowship, or research applications. Ground each draft in the recommender's relationship, observations, and supplied evidence. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill recommendation-letter -a claude-code -y` |
-| | `claude plugin install recommendation-letter --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx skills add DiamondhunterSA/academic_application_writing_skill --skill recommendation-letter -a claude-code -y` |
+| | `claude plugin install recommendation-letter --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 
 <!-- SKILLS_TABLE_END -->
 
