@@ -4,11 +4,11 @@
   "description": "Academic application writing skills for personal statements, inquiry emails, recommendation letters, and application package reviews. Install the collection to use every skill, or install individual skills separately.",
   "author": {
     "name": "DiamondhunterSA",
-    "url": "https://github.com/DiamondhunterSA/personal-statement-skill"
+    "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill"
   },
-  "repository": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "repository": "https://github.com/DiamondhunterSA/academic_application_writing_skill",
   "license": "MIT",
-  "homepage": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "homepage": "https://github.com/DiamondhunterSA/academic_application_writing_skill",
   "keywords": [
     "academic-writing",
     "applications",
@@ -17,5 +17,5 @@
     "personal-statement",
     "recommendation-letter"
   ],
-  "version": "0.2.0+9312aef89163"
+  "version": "0.2.0+63e9bb594f48"
 }

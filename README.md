@@ -2,7 +2,9 @@
 
 > A collection of independent skills for application writing and package review.
 
-`academic-application-writing` bundles the repository's skills into one Claude Code plugin. Both Claude Code and `npx skills` use the source files under `skills/`. The GitHub repository is `DiamondhunterSA/personal-statement-skill`, and the marketplace is `DiamondhunterSA-skills`.
+`academic-application-writing` bundles the repository's skills into one Claude Code plugin. Both Claude Code and `npx skills` use the source files under `skills/`. The GitHub repository is `DiamondhunterSA/academic_application_writing_skill`, and the marketplace is `DiamondhunterSA-academic-application-writing`.
+
+This repository maintains the multi-skill collection. The original [personal-statement repository](https://github.com/DiamondhunterSA/personal-statement-skill) provides the single-skill distribution.
 
 ## Overview
 
@@ -48,30 +50,40 @@ Stage 5: Iterate   →  Targeted revision based on feedback
 
 ### Option 1: npx skills (CLI)
 
-Run from the project where you want to use the skills. Install every skill into Claude Code without interactive selection:
+Run this command from the project where you want to use the skills. It installs all discoverable skills from the published GitHub repository for Claude Code in the current project.
 
 ```bash
-npx skills add DiamondhunterSA/personal-statement-skill -s '*' -a claude-code -y
+npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill "*" --agent claude-code --yes
 ```
 
-Use `--skill personal-statement`, `--skill inquiry-email`, `--skill recommendation-letter`, or `--skill application-review` to select one skill. Add `-g` for a user-wide npx installation, or `--copy` to copy files instead of using links. `--all` selects all agents as well as all skills; the command above targets Claude Code only.
+The first `--yes` accepts npx's package download prompt. The final `--yes` skips the skills CLI's confirmation prompts. Use the quoted `"*"` exactly as shown when selecting every skill.
+
+Project installations are available to Claude Code under `.claude/skills/<skill-name>/`, relative to the directory where you run the command. Add `--global` (or `-g`) for a user-wide installation, normally under `~/.claude/skills/`.
+
+Use `--skill personal-statement`, `--skill inquiry-email`, `--skill recommendation-letter`, or `--skill application-review` to select one skill. Use `--copy` to explicitly request file copies. `--all` selects every skill and every supported agent.
+
+To inspect the skills currently available from GitHub before installing, run:
+
+```bash
+npx --yes skills add DiamondhunterSA/academic_application_writing_skill --list
+```
 
 ### Option 2: Claude Code Plugin Marketplace
 
 Install the entire collection with one command:
 
 ```bash
-claude plugin install academic-application-writing --marketplace DiamondhunterSA/personal-statement-skill --scope project
+claude plugin install academic-application-writing --marketplace DiamondhunterSA/academic_application_writing_skill --scope project
 ```
 
 Alternatively, add the marketplace and install the collection in two steps:
 
 ```bash
 # Step 1: Add the marketplace
-claude plugin marketplace add DiamondhunterSA/personal-statement-skill
+claude plugin marketplace add DiamondhunterSA/academic_application_writing_skill
 
 # Step 2: Install the collection
-claude plugin install academic-application-writing@DiamondhunterSA-skills --scope project
+claude plugin install academic-application-writing@DiamondhunterSA-academic-application-writing --scope project
 ```
 
 Start a new Claude session, or run `/reload-plugins`, then invoke a skill:
@@ -98,17 +110,17 @@ Choose the collection or individual plugins for a project to avoid duplicate ski
 | Skill | Description |
 |-------|-------------|
 | [application-review](skills/application-review) | Review an academic application package or a supplied subset of its materials against program requirements and across documents. Use for final submission checks, cross-document fact checks, prompt coverage, and consistency or complementarity reviews of CVs, statements, research proposals, supplementary essays, and related application materials. Return prioritized findings with evidence and concrete fixes; standalone drafting or sentence-level polishing belongs to the relevant writing skill. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill application-review -a claude-code -y` |
-| | `claude plugin install application-review --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill application-review --agent claude-code --yes` |
+| | `claude plugin install application-review --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [inquiry-email](skills/inquiry-email) | Draft, revise, and personalize inquiry emails (including enquiry emails and academic outreach) to prospective supervisors, research groups, admissions or funding offices, and contacts for research or professional opportunities. Use for initial inquiries, follow-ups, or replies in an inquiry thread; full application essays, cover letters, and unrelated marketing or customer-support email are outside this skill's focus. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill inquiry-email -a claude-code -y` |
-| | `claude plugin install inquiry-email --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill inquiry-email --agent claude-code --yes` |
+| | `claude plugin install inquiry-email --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [personal-statement](skills/personal-statement) | Assist in writing, structuring, and polishing personal statements and self-introductions. Use for drafting or revising a PS, personal statement, self-introduction, application essay, motivation letter, statement of purpose, cover letter, or personal bio for study abroad, graduate/PhD admissions, scholarships, jobs, or similar applications. Package-wide requirements and cross-document consistency reviews are outside this skill's focus. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill personal-statement -a claude-code -y` |
-| | `claude plugin install personal-statement --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill personal-statement --agent claude-code --yes` |
+| | `claude plugin install personal-statement --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 | [recommendation-letter](skills/recommendation-letter) | Draft, revise, and personalize academic recommendation letters, letters of reference, and LoRs in the first-person voice of a project supervisor, research supervisor, course instructor, or another academic mentor. Use for full letters, recommender questionnaire responses, translations, and distinct letters from several recommenders supporting graduate, PhD, scholarship, fellowship, or research applications. Ground each draft in the recommender's relationship, observations, and supplied evidence. |
-| | `npx skills add DiamondhunterSA/personal-statement-skill --skill recommendation-letter -a claude-code -y` |
-| | `claude plugin install recommendation-letter --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| | `npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill recommendation-letter --agent claude-code --yes` |
+| | `claude plugin install recommendation-letter --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 
 <!-- SKILLS_TABLE_END -->
 
@@ -213,9 +225,9 @@ Give me evidence and a concrete fix for each issue; do not rewrite the documents
 
 | Channel | How It Works | Install Command |
 |---------|-------------|-----------------|
-| **npx skills** | Install all or selected source skills | `npx skills add DiamondhunterSA/personal-statement-skill -s '*' -a claude-code -y` |
-| **Claude collection** | Marketplace source `./` loads the root `skills/` directly | `claude plugin install academic-application-writing --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
-| **Claude standalone** | Generated `plugins/<name>/` keeps the original individual entry | `claude plugin install personal-statement --marketplace DiamondhunterSA/personal-statement-skill --scope project` |
+| **npx skills** | Install all or selected source skills | `npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill "*" --agent claude-code --yes` |
+| **Claude collection** | Marketplace source `./` loads the root `skills/` directly | `claude plugin install academic-application-writing --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
+| **Claude standalone** | Generated `plugins/<name>/` keeps the original individual entry | `claude plugin install personal-statement --marketplace DiamondhunterSA/academic_application_writing_skill --scope project` |
 
 ### CI/CD Automation
 

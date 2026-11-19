@@ -54,8 +54,8 @@ def get_repo_info(repo_root: Path = ROOT) -> dict:
         return {"owner": owner, "repo": repo, "url": url}
     except (OSError, ValueError, subprocess.CalledProcessError):
         return {
-            "owner": "DiamondhunterSA", "repo": "personal-statement-skill",
-            "url": "https://github.com/DiamondhunterSA/personal-statement-skill",
+            "owner": "DiamondhunterSA", "repo": "academic_application_writing_skill",
+            "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill",
         }
 
 
@@ -126,7 +126,7 @@ def content_version(manifest: dict, files: dict[Path, bytes]) -> str:
 
 def generate_readme(name: str, description: str, repo_info: dict) -> str:
     repository = f"{repo_info['owner']}/{repo_info['repo']}"
-    marketplace = f"{repo_info['owner']}-skills"
+    marketplace = f"{repo_info['owner']}-{COLLECTION_NAME}"
     return f"""# {name}
 
 {description}
@@ -153,7 +153,7 @@ claude plugin install {name}@{marketplace} --scope project
 ### npx skills
 
 ```bash
-npx skills add {repository} --skill {name} -a claude-code -y
+npx --yes skills add {repository} --skill {name} --agent claude-code --yes
 ```
 
 ## Usage and collection
@@ -210,7 +210,7 @@ def build_artifacts(repo_root: Path, repo_info: dict) -> dict[Path, bytes]:
         })
     marketplace = {
         "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-        "name": f"{repo_info['owner']}-skills",
+        "name": f"{repo_info['owner']}-{COLLECTION_NAME}",
         "description": "Academic application writing collection and individual skill plugins.",
         "owner": {"name": repo_info["owner"], "url": f"https://github.com/{repo_info['owner']}"},
         "plugins": entries,

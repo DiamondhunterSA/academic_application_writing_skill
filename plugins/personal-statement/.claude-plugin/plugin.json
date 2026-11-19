@@ -3,13 +3,13 @@
   "description": "Assist in writing, structuring, and polishing personal statements and self-introductions. Use for drafting or revising a PS, personal statement, self-introduction, application essay, motivation letter, statement of purpose, cover letter, or personal bio for study abroad, graduate/PhD admissions, scholarships, jobs, or similar applications. Package-wide requirements and cross-document consistency reviews are outside this skill's focus.",
   "author": {
     "name": "DiamondhunterSA",
-    "url": "https://github.com/DiamondhunterSA/personal-statement-skill"
+    "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill"
   },
-  "repository": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "repository": "https://github.com/DiamondhunterSA/academic_application_writing_skill",
   "license": "MIT",
-  "homepage": "https://github.com/DiamondhunterSA/personal-statement-skill/tree/master/plugins/personal-statement",
+  "homepage": "https://github.com/DiamondhunterSA/academic_application_writing_skill/tree/main/plugins/personal-statement",
   "skills": [
     "./skills"
   ],
-  "version": "0.2.0+f42371a5fedf"
+  "version": "0.2.0+00053a0785cc"
 }

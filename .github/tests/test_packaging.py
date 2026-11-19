@@ -25,8 +25,8 @@ validator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(validator)
 generator = validator.generator
 readme = validator.readme
-INFO = {"owner": "DiamondhunterSA", "repo": "personal-statement-skill",
-        "url": "https://github.com/DiamondhunterSA/personal-statement-skill", "default_branch": "master"}
+INFO = {"owner": "DiamondhunterSA", "repo": "academic_application_writing_skill",
+        "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill", "default_branch": "main"}
 
 
 def snapshot(root):
@@ -69,22 +69,24 @@ class PackagingTests(unittest.TestCase):
         path.write_bytes(readme.render_readme(path.read_text(encoding="utf-8"), table).encode("utf-8"))
 
     def run_script(self, script, *args):
-        env = dict(os.environ, GITHUB_REPOSITORY="DiamondhunterSA/personal-statement-skill",
-                   SKILLS_DEFAULT_BRANCH="master", PYTHONDONTWRITEBYTECODE="1")
+        env = dict(os.environ, GITHUB_REPOSITORY="DiamondhunterSA/academic_application_writing_skill",
+                   SKILLS_DEFAULT_BRANCH="main", PYTHONDONTWRITEBYTECODE="1")
         return subprocess.run([sys.executable, "-B", str(self.root / ".github/scripts" / script), *args],
                               cwd=self.root.parent, env=env, capture_output=True, text=True)
 
-    def test_collection_and_original_install_ids_discover_the_expected_skills(self):
+    def test_collection_and_individual_install_ids_discover_the_expected_skills(self):
         source = snapshot(self.root / "skills")
         self.assertEqual(validator.validate_repository(self.root, INFO), [])
         marketplace = json.loads((self.root / ".claude-plugin/marketplace.json").read_text(encoding="utf-8"))
-        self.assertEqual(marketplace["name"], "DiamondhunterSA-skills")
+        self.assertEqual(marketplace["name"], "DiamondhunterSA-academic-application-writing")
         entries = {entry["name"]: entry for entry in marketplace["plugins"]}
         self.assertEqual(entries["academic-application-writing"]["source"], "./")
         for name in SKILL_NAMES:
             self.assertEqual(entries[name]["source"], f"./plugins/{name}")
             plugin = self.root / "plugins" / name
             self.assertEqual(validator.discover_skill_names(plugin), {name})
+            instructions = (plugin / "README.md").read_text(encoding="utf-8")
+            self.assertIn(f"{name}@{marketplace['name']}", instructions)
             self.assertEqual((plugin / "skills/assets/example.bin").read_bytes(), b"\x89\xff\0\r\n")
         self.assertEqual(validator.discover_skill_names(self.root), set(SKILL_NAMES))
         self.generate()
@@ -169,6 +171,21 @@ class PackagingTests(unittest.TestCase):
         self.assertFalse(stale.exists())
         self.assertEqual(identity, plugin_root.stat().st_ino)
         self.assertEqual(validator.validate_repository(self.root, INFO), [])
+
+    def test_repository_identity_defaults_and_overrides(self):
+        expected_default = {key: INFO[key] for key in ("owner", "repo", "url")}
+        expected_fork = {"owner": "example", "repo": "fork", "url": "https://github.com/example/fork"}
+        with patch.dict(os.environ, {}, clear=True):
+            with patch.object(generator.subprocess, "run", side_effect=OSError("Git unavailable")):
+                self.assertEqual(generator.get_repo_info(self.root), expected_default)
+                self.assertEqual(readme.get_repo_info(), expected_default)
+            remote = subprocess.CompletedProcess([], 0, stdout="git@github.com:example/fork.git\n")
+            with patch.object(generator.subprocess, "run", return_value=remote):
+                self.assertEqual(generator.get_repo_info(self.root), expected_fork)
+                self.assertEqual(readme.get_repo_info(), expected_fork)
+        with patch.dict(os.environ, {"GITHUB_REPOSITORY": "example/fork"}, clear=True):
+            self.assertEqual(generator.get_repo_info(self.root), expected_fork)
+            self.assertEqual(readme.get_repo_info(), expected_fork)
 
     def test_branch_override_and_encoded_homepage_preserve_release_configuration(self):
         with patch.dict(os.environ, {"SKILLS_DEFAULT_BRANCH": "main"}):

@@ -3,13 +3,13 @@
   "description": "Draft, revise, and personalize academic recommendation letters, letters of reference, and LoRs in the first-person voice of a project supervisor, research supervisor, course instructor, or another academic mentor. Use for full letters, recommender questionnaire responses, translations, and distinct letters from several recommenders supporting graduate, PhD, scholarship, fellowship, or research applications. Ground each draft in the recommender's relationship, observations, and supplied evidence.",
   "author": {
     "name": "DiamondhunterSA",
-    "url": "https://github.com/DiamondhunterSA/personal-statement-skill"
+    "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill"
   },
-  "repository": "https://github.com/DiamondhunterSA/personal-statement-skill",
+  "repository": "https://github.com/DiamondhunterSA/academic_application_writing_skill",
   "license": "MIT",
-  "homepage": "https://github.com/DiamondhunterSA/personal-statement-skill/tree/master/plugins/recommendation-letter",
+  "homepage": "https://github.com/DiamondhunterSA/academic_application_writing_skill/tree/main/plugins/recommendation-letter",
   "skills": [
     "./skills"
   ],
-  "version": "0.2.0+d2e2c0a0e9a9"
+  "version": "0.2.0+54e5ff9d5a5a"
 }

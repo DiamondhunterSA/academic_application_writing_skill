@@ -65,7 +65,7 @@ def get_repo_info() -> dict:
         parts = url.rstrip("/").split("/")
         return {"owner": parts[-2], "repo": parts[-1], "url": url}
     except Exception:
-        return {"owner": "DiamondhunterSA", "repo": "personal-statement-skill", "url": "https://github.com/DiamondhunterSA/personal-statement-skill"}
+        return {"owner": "DiamondhunterSA", "repo": "academic_application_writing_skill", "url": "https://github.com/DiamondhunterSA/academic_application_writing_skill"}
 
 
 def generate_table(skills: list[dict], repo_info: dict) -> str:
@@ -81,7 +81,7 @@ def generate_table(skills: list[dict], repo_info: dict) -> str:
         skill_link = f"[{skill['name']}](skills/{skill['dir_name']})"
         description = skill["description"].replace("|", "\\|").replace("\n", " ")
         lines.append(f"| {skill_link} | {description} |")
-        npx_cmd = f'`npx skills add {owner_repo} --skill {skill["name"]} -a claude-code -y`'
+        npx_cmd = f'`npx --yes skills add {owner_repo} --skill {skill["name"]} --agent claude-code --yes`'
         lines.append(f"| | {npx_cmd} |")
         plugin_cmd = f'`claude plugin install {skill["name"]} --marketplace {owner_repo} --scope project`'
         lines.append(f"| | {plugin_cmd} |")

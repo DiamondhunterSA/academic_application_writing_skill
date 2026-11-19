@@ -11,20 +11,20 @@ Run from the project where you want to use this skill.
 Install this skill with one command:
 
 ```bash
-claude plugin install inquiry-email --marketplace DiamondhunterSA/personal-statement-skill --scope project
+claude plugin install inquiry-email --marketplace DiamondhunterSA/academic_application_writing_skill --scope project
 ```
 
 Alternatively, add the marketplace and install the skill in two steps:
 
 ```bash
-claude plugin marketplace add DiamondhunterSA/personal-statement-skill
-claude plugin install inquiry-email@DiamondhunterSA-skills --scope project
+claude plugin marketplace add DiamondhunterSA/academic_application_writing_skill
+claude plugin install inquiry-email@DiamondhunterSA-academic-application-writing --scope project
 ```
 
 ### npx skills
 
 ```bash
-npx skills add DiamondhunterSA/personal-statement-skill --skill inquiry-email -a claude-code -y
+npx --yes skills add DiamondhunterSA/academic_application_writing_skill --skill inquiry-email --agent claude-code --yes
 ```
 
 ## Usage and collection
